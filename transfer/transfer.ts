@@ -21,6 +21,7 @@ const connection = new Connection("https://api.devnet.solana.com");
 
 (async () => {
   try {
+    // Step 1: Create a new transaction and add a transfer instruction
     const transaction = new Transaction().add(
       SystemProgram.transfer({
         fromPubkey: from.publicKey,
@@ -29,10 +30,12 @@ const connection = new Connection("https://api.devnet.solana.com");
       })
     );
 
+    // Step 2: Fetch the recent blockhash for transaction validity
     transaction.recentBlockhash = (
       await connection.getLatestBlockhash("confirmed")
     ).blockhash;
 
+    // Step 3: Set the fee payer for the transaction
     transaction.feePayer = from.publicKey;
 
     // Sign transaction, broadcast, and confirm
