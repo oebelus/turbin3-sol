@@ -13,6 +13,7 @@
     "@solana/web3.js": "^1.95.8",
     "@types/node": "^22.10.2",
     "bs58": "^6.0.0",
+    "gitignore": "^0.7.0",
     "typescript": "^5.7.2",
     "yarn": "^1.22.22"
   },
